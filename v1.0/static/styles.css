@@ -6,13 +6,16 @@ main .form-control {
 
 /* layout.html */
 body {
+  position: relative;
   color: #d07000;
   background: #2f2f2f;
   margin: 0 auto 0 auto;
   text-align: center;
+  min-width: 1300px;
 }
 body main {
   min-height: 100vh;
+  padding-bottom: 150px;
 }
 body main p {
   font-size: 20px;
@@ -51,7 +54,14 @@ body .alert button {
   margin: 3px 10px 3px 10px;
 }
 #navbar img {
-  size: 10px 10px;
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  vertical-align: -18px;
+}
+#navbar .end {
+  vertical-align: -10px;
+  font-size: 30px;
 }
 #navbar .dropdown-menu {
   position: absolute;
@@ -83,8 +93,11 @@ body .alert button {
 
 /* footer.html */
 footer {
+  position: absolute;
+  bottom: 0;
   margin-top: 120px;
   width: 100%;
+  min-width: 1300px;
   background-color: #181818;
 }
 footer #footer {
@@ -157,6 +170,7 @@ footer #footer img {
   border-radius: 0.5%;
   width: 85%;
   margin-left: 120px;
+  min-height: 1000px;
 }
 #home .news .divider:last-child {
   display: none;
@@ -680,7 +694,7 @@ footer #footer img {
   border: solid 2px white;
   border-radius: 0.5%;
   width: 85%;
-  margin-left: 120px;
+  margin: auto;
 }
 #quote .news .divider:last-child {
   display: none;
