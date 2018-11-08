@@ -1,0 +1,44 @@
+{% extends "footer.html" %}
+
+{% block title0 %}
+    Purchase
+{% endblock %}
+
+{% block main0 %}
+<div id="buy">
+
+	<!-- Confirmation message. -->
+	<div class="message">
+		{% if amount==1 %}
+		<p>You are about to purchase <b>1 share</b> of {{ info['name'] }} ({{ info['symbol'] }}) for {{ info ['price'] | usd }}.</p>
+		{% else %}
+		<p>You are about to purchase <b>{{ amount }}</b> shares of {{ info['name'] }} ({{ info['symbol'] }}) for {{ info ['price'] | usd }} per share.</p>
+		{% endif %}
+	</div>
+	<div class="division"></div>
+	
+	<div class="box">
+		<!-- Balance change information. -->
+		<table class="purchase">
+			<tr>
+				<td>Current balance:</td>
+				<td>{{ balance | usd }}</td>
+			</tr>
+			<tr>
+				<td>Balance change:</td>
+				<td class="r"><span style="color: red;">({{ cost | usd }})</span></td>
+			</tr>
+			<tr class="last">
+				<td>New balance:</td>
+				<td>{{ new_balance | usd }}</td>
+			</tr>
+		</table>
+		
+		<!-- Continue confirmation. -->
+		<form action="{{ url_for('purchase') }}" method="post">
+			<button type="submit" class="btn btn-default">Confirm Transaction</button>
+		</form>
+	</div>
+	
+</div>
+{% endblock %}

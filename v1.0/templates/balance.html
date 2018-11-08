@@ -1,0 +1,67 @@
+{% extends "footer.html" %}
+
+{% block title0 %}
+    Balance
+{% endblock %}
+
+{% block main0 %}
+<div id="balance">
+
+	<!-- Display current balance. -->
+    <div class="current">
+        <p>Current balance:</p>
+		<div class="divider"></div>
+		<span>{{ balance | usd }}</span>
+    </div>
+	
+	<!-- Render deposit/withdrawl table. -->
+	<table>
+		<tr>
+			<td class="deposit">
+				<div class="deposit">
+					<form action="{{ url_for('balance') }}" method="post">
+						<fieldset>
+							<p>DEPOSIT</p>
+							<div class="divider"></div>
+							<div class="form-group">
+								<input autocomplete="off" class="form-control" name="amount" placeholder="$0.00" type="text"/>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-default" type="submit">Confirm</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</td>
+			<td class="withdrawl">
+				<div class="withdrawl">
+					<form action="{{ url_for('balance') }}" method="post">
+						<fieldset disabled>
+							<p>WITHDRAWL</p>
+							<div class="divider"></div>
+							<div class="form-group">
+								<input autocomplete="off" class="form-control" name="amount" placeholder="$0.00" type="text" disabled/>
+								
+							</div>
+							<div class="form-group">
+								<button class="btn btn-default" type="submit">Confirm</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="note">
+					<span>Withdrawl feature not yet available...</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	<!-- Note to user. -->
+	{% if session.tutorial %}
+	<div class="user_note">
+		<p>In order to start trading, you will need to deposit money into your Stockings Savings, or S^2 [TM], balance. Here at Stockings, we accept a variety of payments methods. We mainly deal in Imaginary Dollars, or I-Dollars [TM], however, and don't accept any other forms of payment. Upon your first deposit into your S^2 [TM] account, your I-Dollars [TM] balance is triple encrypted and sent by armed convoy to our self-sustained, sub-terranian data storage facility in a non-specific location near Mariana's Trench.</p>
+		<p><a href="/balance">Got it!</a></p>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{# Import title block #}
+{% block title2 %}
+	{% block title1 %}{% endblock %}
+{% endblock %}
+
+{% block nav %}
+<div id="navbar">
+	<nav class="navbar fixed-top navbar-expand navbar-light bg-light">
+		<a class="navbar-brand" href="{{ url_for('home') }}">
+			<img class="icon" src="https://i.imgur.com/RH2ahyy.png" alt="S">
+			<span>Stockings</span>
+		</a>
+		<form action="{{ url_for('quote') }}" method="post" class="form-control-lg searchbar">
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" name="symbol" autocomplete="off" placeholder="Stock Symbol" aria-describedby="basic-addon2">
+				<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="submit">Search</button>
+				</div>
+			</div>
+		</form>
+		<div class="navbar-nav">
+			{% if session.user_id %}
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					{{ session.user }}
+				</a>
+				<div class="dropdown-menu logged" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="{{ url_for('portfolio') }}">Portfolio</a>
+					<a class="dropdown-item" href="{{ url_for('history') }}">History</a>
+					<a class="dropdown-item" href="{{ url_for('balance') }}">Balance</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="{{ url_for('unregister') }}">Unregister</a>
+					<a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
+				</div>
+			</li>
+			{% else %}
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="TODO">		<!-- give focus to username input -->
+					Login
+				</a>
+				<div class="dropdown-menu notlogged" aria-labelledby="loginDropdown">
+					<form action="{{ url_for('login') }}" method="post" class="form-control-lg">
+						<input class="form-control" autocomplete="off" name="username" placeholder="Username" type="text"/>
+						<input class="form-control" autocomplete="off" name="password" placeholder="Password" type="password"/>
+						<button class="btn btn-default" type="submit">Log In</button>
+					</form>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="{{ url_for('register') }}">Register</a>
+				</div>
+			</li>
+			{% endif %}
+		</div>
+	</nav>
+</div>
+{% endblock %}
+
+{# Import main block #}
+{% block main2 %}
+	{% block main1 %}{% endblock %}
+{% endblock %}
+
+{# Import footer block #}
+{% block footer1 %}
+	{% block footer0 %}{% endblock %}
+{% endblock %}
