@@ -13,6 +13,7 @@ main .form-control {
 
 /* layout.html */
 body {
+	position: relative;
     color: $primary_color;
     background: $primary_background;
 	margin: 0 auto 0 auto;
@@ -21,6 +22,7 @@ body {
 	
 	main {
 		min-height: 100vh;
+		padding-bottom: 150px;
 		
 		p {
 			font-size: 20px;
@@ -115,6 +117,8 @@ body {
 
 /* footer.html */
 footer {
+	position: absolute;
+	bottom: 0;
 	margin-top: 120px;
 	width: 100%;
 	min-width: 1300px;
@@ -1000,3 +1004,9 @@ footer {
 		};
 	};
 };
+
+
+
+
+
+
