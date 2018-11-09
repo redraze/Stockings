@@ -198,7 +198,7 @@ def portfolio():
 			rows[i]['link'] = link
 		
 		# get news
-		url = 'https://www.investing.com/rss/stock_stock_picks.rss'
+		url = 'http://articlefeeds.nasdaq.com/nasdaq/categories?category=Stocks'
 		news = get_news(url)
 		
 		if len(rows) == 0:
