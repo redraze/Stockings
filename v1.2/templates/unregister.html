@@ -1,0 +1,28 @@
+{% extends "footer.html" %}
+
+{% block title0 %}
+    Unregister
+{% endblock %}
+
+{% block main0 %}
+<div id="unregister">
+	
+	<!-- Confirmation message. -->
+    <div class="confirmation">
+		<h1>We're sad to see you go!</h1>
+		<div class="division"></div>
+	</div>
+	
+	<!-- Password protected confirmation. -->
+    <form action="{{ url_for('unregister') }}" method="post">
+		<p>...are you sure you want to <span class="hl">delete</span> your account?</p>
+		<fieldset>
+			<h5>Please re-enter your password:</h5>
+			<div class="form-group">
+				<input autofocus autocomplete="off" class="form-control" name="password" type="password" placeholder="Password">
+				<button class="btn btn-default" type="submit">Yes, delete my account.</button>
+			</div>
+		</fieldset>
+	</form>
+</div>
+{% endblock %}

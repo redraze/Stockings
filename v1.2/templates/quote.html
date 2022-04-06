@@ -1,0 +1,97 @@
+{% extends "footer.html" %}
+
+{% block title0 %}
+    Quote
+{% endblock %}
+
+{% block main0 %}
+<div id="quote">
+	{% if info %}
+	<!-- Display stock information. -->
+	<div class="stock_info">
+		<h2><b>{{ info["name"] }} ({{ info["symbol"] }})</b></h2>
+		<div class="divider"></div>
+		<h4>Current price: {{ info["price"] | usd }}</h4>
+		{% if session.user %}
+			{% if owned %}
+				{% if owned==1 %}
+					<h6>You currently own <b>{{ owned }} share</b> of this stock.</h6>
+				{% else %}
+					<h6>You currently own <b>{{ owned }} shares</b> of this stock.</h6>
+				{% endif %}
+			{% else %}
+				<h6>You do not currently own any shares of this stock.</h6>
+			{% endif %}
+		{% else %}
+			<p><a href="{{ url_for('login') }}">Login</a> or <a href="{{ url_for('register') }}">register</a> to begin trading {{ info['name'] }}</p>
+		{% endif %}
+	</div>
+	<!-- Render buy/sell table. -->
+	{% if session.user %}
+	{% if info['marketState'] %}
+	{% if info['tradeable'] %}
+	<table>
+		<tr>
+			<td class="purchase">
+				<p>Purchase</p>
+				<div class="divider"></div>
+				<form action="{{ url_for('buy') }}" method="post">
+					<fieldset>
+						<div class="form-group">
+							<input type="text" class="form-control" name="amount" autocomplete="off" placeholder="Number of shares">
+						</div>
+						<div class="form-group">
+							<button class="btn btn-default" type="submit">Buy!</button>
+						</div>
+					</fieldset>
+				</form>
+			</td>
+			<td class="sell">
+				<p>Liquidate</p>
+				<div class="divider"></div>
+				{% if owned %}
+				<form action="{{ url_for('sell') }}" method="post">
+					<fieldset>
+						<div class="form-group">
+							<input type="text" class="form-control" name="{{ info['symbol'] }}" autocomplete="off" placeholder="Number of shares">
+						</div>
+						<div class="form-group">
+							<button class="btn btn-default" type="submit">Sell!</button>
+						</div>
+					</fieldset>
+				</form>
+				{% else %}
+				<form action="{{ url_for('sell') }}" method="post">
+					<fieldset disabled>
+						<div class="form-group">
+							<input type="text" class="form-control" name="{{ info['symbol'] }}" autocomplete="off" placeholder="Number of shares">
+						</div>
+						<div class="form-group">
+							<button class="btn btn-default" type="submit">Sell!</button>
+						</div>
+					</fieldset>
+				</form>
+				{% endif %}
+			</td>
+		</tr>
+	</table>
+	{% endif %}
+	{% endif %}
+	{% endif %}
+	<!-- Display relevant news articles. -->
+	<div class="news_top">Related news articles:</div>
+	<div class="news">
+		{% for entry in news %}
+		<a href="{{ entry["link"] | form }}" target="_blank">
+			<div class="news_entry">
+				<h4>{{ entry["title"] | form }}</h4>
+				<p>{{ entry["date"] | form }}</p>
+				<p>{{ entry["summary"] | form }}</p>
+			</div>
+		</a>
+		<div class="divider"></div>
+		{% endfor %}
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta content="initial-scale=1, width=device-width" name="viewport"/>
+		
+		<!-- Bootstrap -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		
+		<!-- My own css -->
+		<link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+
+		<!-- My own js -->
+        <script defer src="{{ url_for('static', filename='scripts.js') }}"></script>
+		
+		<!-- Bootstrap support scripts -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		
+		<title>
+		{# Import title block from "nav.html" #}
+		Stockings: {% block title3 %}{% endblock %}
+		</title>
+	</head>
+	
+	<body>
+	
+		{# Import nav block from "nav.html" #}
+		{% block nav0 %}{% endblock %}
+		
+		{# Import autosuggestions from "nav.html" #}
+		{% block autosuggestions1 %}{% endblock %}
+		
+		{# Show flashed messages, if any #}
+		{% if get_flashed_messages() %}
+		<header>
+			<div id="alert" class="alert alert-info" role="alert">
+				<span>{{ get_flashed_messages() | join(" ") }}</span>
+				<div class="button" onclick="closeFlashed()">
+					<div class='line one'></div>
+					<div class='line two'></div>
+				</div>
+			</div>
+		</header>
+		{% endif %}
+		
+		<main>
+		{# Import main block from "nav.html" #}
+		{% block main3 %}{% endblock %}
+		</main>
+		
+		<footer>
+		{# Import footer block from "nav.html" #}
+		{% block footer2 %}{% endblock %}
+		</footer>
+		
+	</body>
+
+</html>

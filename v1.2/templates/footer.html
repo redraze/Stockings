@@ -1,0 +1,19 @@
+{% extends "autosuggestions.html" %}
+
+{# Import title block #}
+{% block title1 %}
+	{% block title0 %}{% endblock %}
+{% endblock %}
+
+{# Import main block #}
+{% block main1 %}
+	{% block main0 %}{% endblock %}
+{% endblock %}
+
+{% block footer0 %}
+<div id="footer">
+	<p><a href="{{ url_for('info') }}">[About this website]</a></p>
+	<p><a href="https://github.com/redraze/Stockings" target="_blank"><img src="../static/cat.png" alt="[Source Code]"></a></p>
+	<p><a href="{{ url_for('info') }}">Have feedback, or found a bug?</a></p>
+</div>
+{% endblock %}

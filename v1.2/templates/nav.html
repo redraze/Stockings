@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{# Import title block  from "autosuggestions.html"#}
+{% block title3 %}
+	{% block title2 %}{% endblock %}
+{% endblock %}
+
+{% block nav0 %}
+<div id="navbar">
+	<nav class="navbar fixed-top navbar-expand navbar-light bg-light">
+		<a class="navbar-brand" href="{{ url_for('home') }}">
+			<img class="icon" src="../static/S.png" alt="S">
+			<span class="end">tockings</span>
+		</a>
+		<form action="{{ url_for('quote') }}" method="post" class="form-control-lg searchbar">
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" name="symbol" autocomplete="off" placeholder="Stock Symbol" aria-describedby="basic-addon2" onkeyup="findResults(this.value)" onfocus="showResults()" onblur="hideResults()">
+				<div class="input-group-append">
+					<button class="btn btn-outline-secondary" type="submit">Search</button>
+				</div>
+			</div>
+			<div id="results"></div>
+		</form>		
+		<div class="navbar-nav">
+			{% if session.user_id %}
+			{% if session.balance == 0 %}
+			<a class="balance" href="{{ url_for('balance') }}">{{ 0 | usd }}</a>
+			{% else %}
+			<a class="balance" href="{{ url_for('balance') }}">{{ session.balance | to_total }}</a>
+			{% endif %}
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					{{ session.user }}
+				</a>
+				<div class="dropdown-menu logged" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="{{ url_for('portfolio') }}">Portfolio</a>
+					<a class="dropdown-item" href="{{ url_for('history') }}">History</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="{{ url_for('unregister') }}">Unregister</a>
+					<a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
+				</div>
+			</li>
+			{% else %}
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="focusUsername()">
+					Login
+				</a>
+				<div class="dropdown-menu notlogged" aria-labelledby="loginDropdown">
+					<form action="{{ url_for('login') }}" method="post" class="form-control-lg">
+						<input class="form-control" autocomplete="off" name="username" placeholder="Username" type="text" id="username"/>
+						<input class="form-control" autocomplete="off" name="password" placeholder="Password" type="password"/>
+						<button class="btn btn-default" type="submit">Log In</button>
+					</form>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="{{ url_for('register') }}">Register</a>
+				</div>
+			</li>
+			{% endif %}
+		</div>
+	</nav>
+</div>
+{% endblock %}
+
+{# Import autosuggestions block from "autosuggestions.html" #}
+{% block autosuggestions1 %}
+	{% block autosuggestions0 %}{% endblock %}
+{% endblock %}
+
+{# Import main block from "autosuggestions.html" #}
+{% block main3 %}
+	{% block main2 %}{% endblock %}
+{% endblock %}
+
+{# Import footer block from "autosuggestions.html" #}
+{% block footer2 %}
+	{% block footer1 %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "footer.html" %}
+
+{% block title0 %}
+    Home Page
+{% endblock %}
+
+{% block main0 %}
+<section id="home">
+	<div class="welcome">
+		<h1>Welcome to Stockings Paper Trading</h1>
+	</div>
+	<div class="info">
+		<div class="ticker">
+			{% for entry in ticker_info %}
+			<a href="{{ entry["link"] }}">
+				<div class="ticker_entry">
+					<h6>{{ entry["name"] }}</h6>
+					<p>{{ entry["prev_close"] }}</p>
+				</div>
+			</a>
+			<div class="divider"></div>
+			{% endfor %}
+		</div>
+		<div class="news">
+			{% for entry in news %}
+			<a href="{{ entry["link"] | form }}" target="_blank">
+				<div class="news_entry">
+					<h4>{{ entry["title"] | form }}</h4>
+					<p>{{ entry["date"] | form }}</p>
+					<p>{{ entry["summary"] | form }}</p>
+				</div>
+			</a>
+			<div class="divider"></div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+{% endblock %}

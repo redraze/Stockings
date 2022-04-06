@@ -1,0 +1,49 @@
+{% extends "footer.html" %}
+
+{% block title0 %}
+    Balance
+{% endblock %}
+
+{% block main0 %}
+<div id="balance">
+
+	<!-- Display current balance. -->
+    <div class="current">
+        <p>Total value of cash and securities:</p>
+		<div class="divider"></div>
+		<span>{{ total | usd }}</span>
+    </div>
+	
+	<!-- Render current securities value table. -->
+	<table>
+		<tr>
+			<th>Stock Name</th>
+			<th>Stock Symbol</th>
+			<th>Stocks Owned</th>
+			<th>Current Price per Share</th>
+			<th>Total value</th>
+		</tr>
+		<tr>
+			<td>CASH</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>{{ balance | usd }}</td>
+		</tr>
+		{% for entry in rows %}
+		<tr>
+			<td><a href="{{ entry['link'] }}">{{ entry["name"] }}</a></td>
+			<td><a href="{{ entry['link'] }}">{{ entry["symbol"] }}</a></td>
+			<td>{{ entry["amount"] }}</td>
+			<td>{{ entry["price"] | usd }}</td>
+			<td>{{ entry["value"] | usd }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+	<!-- Reset button -->
+	<div class='reset'>
+		<a href="{{ url_for('reset') }}">Reset profile</a>
+	</a>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "footer.html" %}
+
+{% block title0 %}
+    Portfolio
+{% endblock %}
+
+{% block main0 %}
+<div id="portfolio">
+    {% if rows %}
+	<!-- Display stock portfolio. -->
+	<form action="{{ url_for('sell') }}" method="post">
+		<table>
+			<tr>
+				<th>Stock Name</th>
+				<th>Stock Symbol</th>
+				<th>Stocks Owned</th>
+				<th>Current Price per Share</th>
+				<th>Sell this stock?</th>
+			</tr>
+			{% for entry in rows %}
+			<tr>
+				<td><a href="{{ entry['link'] }}">{{ entry["name"] }}</a></td>
+				<td><a href="{{ entry['link'] }}">{{ entry["symbol"] }}</a></td>
+				<td>{{ entry["amount"] }}</td>
+				<td>{{ entry["price"] | usd }}</td>
+				{% if entry["marketState"] %}
+				<td>
+					<input type="text" name="{{ entry["symbol"] }}" autocomplete="off" class="form-control" placeholder="amount">
+				</td>
+				{% else %}
+				<td>
+					<input type="text" name="{{ entry["symbol"] }}" autocomplete="off" class="form-control" placeholder="Market Closed" disabled>
+				</td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</table>
+		<button type="submit" class="btn btn-default">Sell!</button>
+   </form>
+	
+	<!-- Greeting message. -->
+	<div class="yes">
+		<h2>Nice looking portfolio, {{ session.user }}!</h2>
+		<div class="division"></div>
+		<p>Here are some investment articles you might find useful:</p>
+	</div>
+	{% else %}
+	<div class="no">
+		<h3>You do not currently own any stocks.<h3>
+		<div class="division"></div>
+		<p>Not to worry! We got you covered with advice from top finanacial advisors that should help you make smart investments:</p>
+	</div>
+    {% endif %}
+	
+	<!-- Relevant news articles. -->
+	<div class="news">
+		{% for entry in news %}
+		<a href="{{ entry["link"] | form }}" target="_blank">
+			<div class="news_entry">
+				<h4>{{ entry["title"] | form }}</h4>
+				<p>{{ entry["date"] | form }}</p>
+				{% if entry.summary %}
+				<p>{{ entry["summary"] | form }}</p>
+				{% endif %}
+			</div>
+		</a>
+		<div class="divider"></div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

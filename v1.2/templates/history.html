@@ -1,0 +1,69 @@
+{% extends "footer.html" %}
+
+{% block title0 %}
+    History
+{% endblock %}
+
+{% block main0 %}
+<div id="history">
+    {% if rows %}
+	<!-- Display hsitory table. -->
+    <table class="history">
+        <tr>
+            <th>Date/Time</th>
+            <th>Stock Name</th>
+            <th>Stock Symbol</th>
+            <th>Transaction Type</th>
+            <th>Price per Share (at time of transaction)</th>
+            <th>Number of Shares</th>
+            <th>Change in Balance</th>
+        </tr>
+        {% for entry in rows %}
+        <tr>
+			<td>{{ entry["date_time"] }}</td>
+			<td><a href="{{ entry['link'] }}">{{ entry["name"] }}</a></td>
+			<td><a href="{{ entry['link'] }}">{{ entry["symbol"] }}</a></td>
+			<td>{{ entry["trans_type"] }}</td>
+			<td>{{ entry["price"] | usd }}</td>
+			<td>{{ entry["amount"] }}</td>
+			<td>{{ entry["balance_change"] | usd }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="form-group">
+        <form action="{{ url_for('history') }}" method="post">
+            <button class="btn btn-default">Clear History</button>
+        </form>
+    </div>
+	
+	<!-- Greeting message. -->
+	<div class="yes">
+		<h2>Looks like you've made history, {{ session.user }}.</h2>
+		<div class="division"></div>
+		<p>Here are some helpful articles from top financial advisors to ensure your legacy lives on:</p>
+	</div>
+    {% else %}
+    <div class="no">
+		<h3>You currently have no trading history.</h3>
+		<div class="division"></div>
+		<p>Your future looks bright though! Here are some helpful articles from top financial advisors:</p>
+	</div>
+    {% endif %}
+	
+	<!-- Relevant news articles. -->
+	<div class="news">
+		{% for entry in news %}
+		<a href="{{ entry["link"] | form }}" target="_blank">
+			<div class="news_entry">
+				<h4>{{ entry["title"] | form }}</h4>
+				<p>{{ entry["date"] | form }}</p>
+				{% if entry.summary %}
+				<p>{{ entry["summary"] | form }}</p>
+				{% endif %}
+			</div>
+		</a>
+		<div class="divider"></div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "footer.html" %}
+
+{% block title0 %}
+    Reset
+{% endblock %}
+
+{% block main0 %}
+<div id="reset">
+
+	<!-- Confirmation message. -->
+    <div class="confirmation">
+		<h1>Are you sure you want to <span style="color: red; font-weight: 600;">reset</span> your account?</h1>
+		<div class="division"></div>
+	</div>
+
+	<!-- Password protected confirmation. -->
+    <form action="{{ url_for('reset') }}" method="post">
+		<p>The securities listed in your <a href="{{ url_for('portfolio') }}">portfolio</a> page will be removed, your <a href="{{ url_for('history') }}">history</a> will be cleared, and your <a href="{{ url_for('balance') }}">balance</a> will be set at $5000 USD.</p>
+		<fieldset>
+			<h5>Please re-enter your password:</h5>
+			<div class="form-group">
+				<input autofocus autocomplete="off" class="form-control" name="password" type="password" placeholder="Password">
+				<button class="btn btn-default" type="submit">Yes, reset my account.</button>
+			</div>
+		</fieldset>
+	</form>
+</div>
+{% endblock %}

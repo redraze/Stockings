@@ -1,0 +1,54 @@
+{% extends "footer.html" %}
+
+{% block title0 %}
+    Info
+{% endblock %}
+
+{% block main0 %}
+<div id="info">
+
+	<!-- Form to report bugs or send feedback. -->
+	<form id="contact" action="{{ url_for('info') }}" method="post">
+		<h2>Send me some feedback!</h2>
+		<div class='divider'></div>
+		<fieldset>
+			<input class="inp" name="contact" placeholder="(your contact details, optional)" autocomplete="off" maxlength="254">
+			<textarea class="inp" name="body" placeholder="(your message, required)"  maxlength="1500"></textarea>
+			<button class="btn btn-default" type="submit">Submit</button>
+		</fieldset>
+	</form>
+
+	<!-- Paper trading information: -->
+	<div class='info'>
+		<h3>Stockings Paper Trading is a simulated, simplified trading environment. There is no real risk involved in trading on this website.</h3>
+		<h6>The term "paper trading" is a reference to a time when aspiring traders would practice on paper before taking on real risk in live markets.</h6>
+		<div class='features'>
+			Some features you won't find on this website:
+			<ul>
+				<li>Bid/ask/spread</li>
+				<li>limit buy/sell</li>
+				<li>options contracts</li>
+				<li>futures contracts</li>
+			</ul>
+		</div>
+		<p><a href="https://www.investopedia.com/" target="_blank">Investopedia</a> is a fantastic resource if you're interested in learning more about investing.</p>
+	</div>
+
+	<div class='divider'></div>
+
+	<!-- Purpose: -->
+	<div class='purpose'>
+		<h3>This website was made just for practice, and is intended to showcase compentency in the following areas:</h3>
+		<ul>
+			<li>Back-end web development -- <a href="https://www.python.org/" target="_blank">Python</a>, <a href="https://www.javascript.com/" target="_blank">JS</a></li>
+			<li>Network architecture -- <a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank">Flask</a></li>
+			<li>Database management -- <a href="https://www.w3schools.com/sql/" target="_blank">SQL</a></li>
+			<li>Front-end web development -- <a href="https://www.w3schools.com/html/" target="_blank">HTML</a>, <a href="https://www.w3schools.com/css/" target="_blank">CSS</a></li>
+			<li>Preprocessor scripting languages -- <a href="https://sass-lang.com/" target="_blank">SASS</a></li>
+			<li>API usage -- <a href="https://www.yahoofinanceapi.com/" target="_blank">Yahoo Finance</a>, <a href="https://data.nasdaq.com/tools/api" target="_blank">NASDAQ</a></li>
+			<li><a href="https://www.w3schools.com/xml/xml_rss.asp" target="_blank">XML RSS</a> feed and <a href="https://www.json.org/json-en.html" target="_blank">JSON</a> data parsing</li>
+		</ul>
+	</div>
+
+</div>
+{% endblock %}
