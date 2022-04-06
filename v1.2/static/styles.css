@@ -1,0 +1,931 @@
+/* Override some bootstrap stuff. */
+main .form-control {
+  display: inline-block;
+  width: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* layout.html */
+body {
+  position: relative;
+  color: #d07000;
+  background: #2f2f2f;
+  margin: 0 auto 0 auto;
+  text-align: center;
+  min-width: 1300px;
+}
+body main {
+  min-height: 100vh;
+  padding-bottom: 150px;
+}
+body main p {
+  font-size: 20px;
+}
+body .alert {
+  position: relative;
+  width: 80%;
+  margin: 0 auto 30px auto;
+}
+body .alert .button {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 35px;
+  width: 35px;
+  background-color: #83ccd9;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease-in-out;
+}
+body .alert .button .line {
+  width: 28px;
+  border-top: 5px black solid;
+  height: 0px;
+  border-radius: 5px;
+  top: 15px;
+  position: absolute;
+  transition: border-color 0.15s ease-in-out;
+  left: 3.5px;
+}
+body .alert .button .line.one {
+  transform: rotate(45deg);
+}
+body .alert .button .line.two {
+  transform: rotate(135deg);
+}
+body .alert .button:hover {
+  background-color: black;
+  cursor: pointer;
+}
+body .alert .button:hover .line {
+  border-color: #83ccd9;
+}
+
+/* navbar.html */
+#navbar {
+  padding-top: 80px;
+}
+#navbar form {
+  margin-left: auto;
+}
+#navbar .navbar {
+  height: 50px;
+}
+#navbar .navbar-nav {
+  margin-left: auto;
+}
+#navbar .navbar-nav > * {
+  margin: 3px 10px 3px 10px;
+}
+#navbar .navbar-nav .balance {
+  margin: auto;
+  padding: 0;
+  color: green;
+  font-weight: 600;
+  font-size: 18px;
+}
+#navbar .navbar-nav .balance:hover {
+  text-decoration: none;
+}
+#navbar img {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  vertical-align: -18px;
+}
+#navbar .end {
+  vertical-align: -10px;
+  font-size: 30px;
+}
+#navbar .dropdown-menu {
+  position: absolute;
+  min-width: 0px;
+  width: 150px;
+}
+#navbar .logged {
+  left: -75px;
+  top: 52px;
+}
+#navbar .notlogged {
+  left: -63px;
+  top: 52px;
+}
+#navbar .notlogged input {
+  margin-bottom: 3px;
+}
+#navbar .searchbar {
+  width: 500px;
+  margin-left: auto;
+}
+#navbar .mb-3 {
+  margin-bottom: 0 !important;
+}
+#navbar .dropdown-item:hover {
+  background-color: #e6e6e6;
+  transition: 0.5s;
+}
+#navbar #results {
+  position: absolute;
+  width: 396px;
+}
+#navbar #results ul {
+  list-style-type: none;
+  padding: 5px 0 5px 0;
+  color: black;
+  background: white;
+  text-align: left;
+  margin: 0;
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 394.8px;
+}
+#navbar #results ul li {
+  padding-left: 12px;
+}
+#navbar #results ul li:hover {
+  background: lightblue;
+}
+#navbar #results ul a {
+  text-decoration: none;
+  color: black;
+}
+#navbar #results ul .divider {
+  border: 1px solid black;
+  width: 80%;
+  position: relative;
+  left: 10%;
+  margin: 5px;
+}
+
+#results.show {
+  display: block;
+}
+
+#results.hide {
+  display: none;
+  transition: 0.3s;
+}
+
+/* footer.html */
+footer {
+  position: absolute;
+  bottom: 0;
+  margin-top: 120px;
+  width: 100%;
+  min-width: 1300px;
+  background-color: #181818;
+  display: flex;
+}
+footer #footer {
+  width: 100%;
+  height: 100%;
+  border-top: solid 4px white;
+  line-height: 0.5em;
+  padding: 10px 0 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+footer #footer p {
+  font-size: 17px;
+  color: #ea7e00;
+  margin-bottom: 0 !important;
+  line-height: 1.5em;
+  padding-bottom: 10px;
+  width: 380px;
+  margin: auto;
+}
+footer #footer a:hover {
+  text-decoration: none;
+}
+footer #footer img {
+  position: relative;
+  bottom: 1.5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+}
+
+/* home.html */
+#home .welcome {
+  font-size: 40px;
+  width: 1000px;
+  margin: 0 auto 30px auto;
+  background-color: #252525;
+  border: 4px solid white;
+  border-radius: 2px;
+}
+#home .welcome h1 {
+  padding: 12px;
+  font-weight: 800;
+  text-shadow: 2px 2px black;
+}
+#home a:hover {
+  text-decoration: none;
+}
+#home a:focus {
+  text-decoration: none;
+}
+#home .info {
+  width: 1300px;
+  margin: auto;
+  position: relative;
+}
+#home .info > * {
+  display: inline-block;
+}
+#home .divider {
+  height: 0px;
+  width: 70%;
+  border-top: 1px solid white;
+  margin: auto;
+}
+#home .news {
+  background: #252525;
+  border: solid 2px white;
+  border-radius: 0.5%;
+  width: 85%;
+  margin-left: 120px;
+  min-height: 1000px;
+}
+#home .news .divider:last-child {
+  display: none;
+}
+#home .news a:hover .news_entry {
+  background-color: #181818;
+  transition: 0.3s;
+}
+#home .news_entry {
+  padding: 5px;
+}
+#home .news_entry :first-child {
+  padding-top: 10px;
+}
+#home .news_entry :last-child {
+  padding-bottom: 10px;
+}
+#home .news_entry p {
+  font-size: 16px;
+  color: #d07000;
+  width: 95%;
+  margin: auto;
+}
+#home .news_entry h4 {
+  color: #007bff;
+}
+#home .ticker {
+  position: absolute;
+  left: 0;
+  background: #252525;
+  border: solid 2px white;
+  border-radius: 2px;
+  width: 130px;
+  overflow-x: hidden;
+  direction: rtl;
+}
+#home .ticker .divider:last-child {
+  display: none;
+}
+#home .ticker a:hover .ticker_entry {
+  background-color: #181818;
+  transition: 0.3s;
+}
+#home .ticker_entry {
+  font-size: 18px;
+  padding: 10px;
+}
+#home .ticker_entry h6 {
+  color: #007bff;
+  margin-bottom: 0 !important;
+}
+#home .ticker_entry p {
+  color: #d07000;
+  font-size: 16px;
+  margin-bottom: 0 !important;
+}
+
+/* register.html */
+#register {
+  margin-top: 30px;
+}
+#register .welcome p {
+  font-size: 28px;
+}
+#register .divider {
+  border: 1px solid white;
+  width: 550px;
+  margin: 0 auto 50px auto;
+}
+#register .register {
+  color: red;
+  font-size: 30px;
+  border: 2.5px solid white;
+  border-radius: 10px;
+  background-color: #252525;
+  height: 300px;
+  width: 300px;
+  margin: auto;
+}
+#register .register fieldset {
+  margin-top: 30px;
+}
+#register .req {
+  margin-top: 10px;
+  color: red;
+  font-size: 18px;
+}
+
+/* balance.html */
+#balance .current {
+  background-color: #252525;
+  border: 10px solid grey;
+  border-radius: 2px;
+  min-width: 400px;
+  display: inline-block;
+  margin: 30px auto 0 auto;
+}
+#balance .current > * {
+  font-size: 30px;
+}
+#balance .current p {
+  padding: 25px;
+  color: #ea7e00;
+  margin: 0;
+  font-size: 40px;
+}
+#balance .current .divider {
+  height: 0px;
+  border: 0.5px solid white;
+  width: 430px;
+  margin: auto;
+}
+#balance .current span {
+  color: #009a00;
+  padding: 15px;
+  display: block;
+  font-weight: 600;
+  font-size: 50px;
+}
+#balance table {
+  width: 1300px;
+  margin: 30px auto 50px auto;
+}
+#balance td {
+  border: 1px solid white;
+  padding: 3px;
+  font-size: 18px;
+  padding: 3px 3px 3px 10px;
+}
+#balance tr:nth-child(even) {
+  background-color: #161616;
+}
+#balance th:first-child {
+  text-align: left;
+}
+#balance td:first-child {
+  text-align: left;
+}
+#balance .reset a {
+  display: block;
+  width: 185px;
+  position: relative;
+  margin: auto;
+  border: 3px solid;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 26px;
+  font-weight: 600;
+  background-color: black;
+}
+#balance .reset a:hover {
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* portfolio.html */
+#portfolio .yes {
+  margin-top: 60px;
+}
+#portfolio .yes h2 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+#portfolio .yes .division {
+  border-top: 3px solid white;
+  margin: auto;
+  width: 300px;
+  color: #ea7e00;
+}
+#portfolio .yes p {
+  width: 250px;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 30px auto 0 auto;
+}
+#portfolio .no h3 {
+  font-weight: 600;
+  margin-bottom: 13px;
+}
+#portfolio .no .division {
+  border-top: 2px solid white;
+  margin: auto;
+  width: 350px;
+  color: #ea7e00;
+}
+#portfolio .no p {
+  width: 400px;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 40px auto 0 auto;
+}
+#portfolio form {
+  width: 1150px;
+  position: relative;
+  margin: 30px auto 0 auto;
+}
+#portfolio form table {
+  font-size: 18px;
+  width: 100%;
+  background-color: #252525;
+}
+#portfolio form table th {
+  background-color: #2f2f2f;
+}
+#portfolio form table th:first-child {
+  text-align: left;
+}
+#portfolio form table th:last-child {
+  text-align: left;
+}
+#portfolio form table td {
+  border: 1px solid white;
+  padding: 1px 1px 1px 5px;
+  text-align: left;
+}
+#portfolio form table td {
+  text-align: center;
+}
+#portfolio form table td:first-child {
+  text-align: left;
+}
+#portfolio form table tr:nth-child(even) {
+  background-color: #161616;
+}
+#portfolio form table td:last-child {
+  border: none;
+  padding: 0;
+  background-color: #2f2f2f;
+  text-align: left;
+  width: 150px;
+}
+#portfolio form table input {
+  width: 150px;
+}
+#portfolio form button {
+  position: absolute;
+  bottom: -42px;
+  right: 94px;
+}
+#portfolio .divider {
+  height: 0px;
+  width: 70%;
+  border-top: 1px solid white;
+  margin: auto;
+}
+#portfolio .news {
+  background: #252525;
+  border: solid 2px white;
+  border-radius: 0.5%;
+  width: 750px;
+  margin: 10px auto 0 auto;
+}
+#portfolio .news .divider:last-child {
+  display: none;
+}
+#portfolio .news a:hover {
+  text-decoration: none;
+}
+#portfolio .news a:hover .news_entry {
+  background-color: #181818;
+  transition: 0.3s;
+}
+#portfolio .news_entry {
+  padding: 5px;
+}
+#portfolio .news_entry :first-child {
+  padding-top: 10px;
+}
+#portfolio .news_entry :last-child {
+  padding-bottom: 10px;
+}
+#portfolio .news_entry p {
+  font-size: 16px;
+  color: #d07000;
+  width: 95%;
+  margin: auto;
+}
+#portfolio .news_entry h4 {
+  color: #007bff;
+}
+
+/* history.html */
+#history .yes h2 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+#history .yes .division {
+  border-top: 3px solid white;
+  margin: auto;
+  width: 350px;
+  color: #ea7e00;
+}
+#history .yes p {
+  width: 400px;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 30px auto 0 auto;
+}
+#history .no h3 {
+  font-weight: 600;
+  margin-bottom: 13px;
+}
+#history .no .division {
+  border-top: 2px solid white;
+  margin: auto;
+  width: 450px;
+  color: #ea7e00;
+}
+#history .no p {
+  width: 400px;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 40px auto 0 auto;
+}
+#history table {
+  width: 1300px;
+  margin: 30px auto 0 auto;
+}
+#history td {
+  border: 1px solid white;
+  padding: 3px;
+  font-size: 18px;
+}
+#history tr:nth-child(even) {
+  background-color: #161616;
+}
+#history .divider {
+  height: 0px;
+  width: 70%;
+  border-top: 1px solid white;
+  margin: auto;
+}
+#history .news {
+  background: #252525;
+  border: solid 2px white;
+  border-radius: 0.5%;
+  width: 750px;
+  margin: 10px auto 0 auto;
+}
+#history .news .divider:last-child {
+  display: none;
+}
+#history .news a:hover {
+  text-decoration: none;
+}
+#history .news a:hover .news_entry {
+  background-color: #181818;
+  transition: 0.3s;
+}
+#history .news_entry {
+  padding: 5px;
+}
+#history .news_entry :first-child {
+  padding-top: 10px;
+}
+#history .news_entry :last-child {
+  padding-bottom: 10px;
+}
+#history .news_entry p {
+  font-size: 16px;
+  color: #d07000;
+  width: 95%;
+  margin: auto;
+}
+#history .news_entry h4 {
+  color: #007bff;
+}
+#history .form-group {
+  margin: 10px auto 40px auto;
+}
+
+/* unregister.html */
+#unregister .confirmation {
+  margin: 50px auto 0 auto;
+}
+#unregister .confirmation .division {
+  height: 0;
+  width: 300px;
+  border: 1px solid white;
+  margin: 15px auto 0 auto;
+}
+#unregister form {
+  margin: 50px auto 0 auto;
+  background-color: #252525;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 500px;
+}
+#unregister form p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+#unregister form p .hl {
+  color: red;
+  font-weight: 650;
+}
+#unregister form h5 {
+  margin-bottom: 10px;
+}
+#unregister form input {
+  vertical-align: middle;
+  width: 200px;
+}
+#unregister form button {
+  vertical-align: middle;
+}
+
+/* reset.html */
+#reset .confirmation {
+  margin: 50px auto 0 auto;
+}
+#reset .confirmation .division {
+  height: 0;
+  width: 600px;
+  border: 1px solid white;
+  margin: 30px auto 0 auto;
+}
+#reset form {
+  margin: 50px auto 0 auto;
+  background-color: #252525;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 500px;
+}
+#reset form p {
+  font-size: 14px;
+  margin-top: 12px;
+  padding: 0 15px 0 15px;
+}
+#reset form h5 {
+  margin-bottom: 10px;
+}
+#reset form input {
+  vertical-align: middle;
+  width: 200px;
+}
+#reset form button {
+  vertical-align: middle;
+}
+
+/* login.html */
+#login .welcome {
+  margin-top: 30px;
+}
+#login .welcome h1 {
+  margin-bottom: 20px !important;
+}
+#login .welcome .division {
+  width: 500px;
+  margin: 20px auto 0 auto;
+  border-top: 2px solid white;
+}
+#login form {
+  background-color: #252525;
+  width: 280px;
+  border: 2px solid white;
+  border-radius: 10px;
+  margin: 50px auto 0 auto;
+}
+#login form fieldset {
+  margin-top: 20px;
+}
+#login .register {
+  margin-top: 30px;
+}
+
+/* quote.html */
+#quote {
+  display: inline-block;
+}
+#quote .stock_info .divider {
+  border: 1px solid white;
+  height: 0px;
+  width: 320px;
+  margin: 0 auto 5px auto;
+}
+#quote .stock_info h6 {
+  margin-top: 50px;
+}
+#quote .stock_info p {
+  margin-top: 30px;
+  font-size: 18px;
+}
+#quote table {
+  margin: 0 auto 80px auto;
+  width: 700px;
+}
+#quote table p {
+  top: 10px;
+  margin-bottom: 0 !important;
+}
+#quote table tr {
+  background-color: #252525;
+}
+#quote table td {
+  height: 150px;
+  width: 350px;
+  padding: 0;
+  border: 1px solid white;
+}
+#quote table .divider {
+  text-align: center;
+  height: 0px;
+  border-top: 0.5px solid white;
+  width: 90px;
+  margin: 0 auto 15px auto;
+}
+#quote table .form-group {
+  margin-bottom: 0.5rem;
+}
+#quote a:hover {
+  text-decoration: none;
+}
+#quote a:focus {
+  text-decoration: none;
+}
+#quote .news_top {
+  margin: 30px auto 10px auto;
+  font-size: 20px;
+  font-weight: 300;
+  width: 350px;
+}
+#quote .news {
+  background: #252525;
+  border: solid 2px white;
+  border-radius: 0.5%;
+  width: 85%;
+  margin: auto;
+}
+#quote .news .divider:last-child {
+  display: none;
+}
+#quote .news a:hover .news_entry {
+  background-color: #181818;
+  transition: 0.3s;
+}
+#quote .news .divider {
+  height: 0px;
+  width: 70%;
+  border-top: 1px solid white;
+  margin: auto;
+}
+#quote .news_entry {
+  padding: 5px;
+}
+#quote .news_entry :first-child {
+  padding-top: 10px;
+}
+#quote .news_entry :last-child {
+  padding-bottom: 10px;
+}
+#quote .news_entry p {
+  font-size: 16px;
+  color: #d07000;
+  width: 95%;
+  margin: auto;
+}
+#quote .news_entry h4 {
+  color: #007bff;
+}
+
+/* buy.html */
+#buy .message > * {
+  margin-top: 35px;
+  font-size: 28px;
+}
+#buy .division {
+  border: 1.5px solid white;
+  width: 650px;
+  margin: 0 auto 30px auto;
+}
+#buy .box {
+  border: 2px solid white;
+  border-radius: 10px;
+  background: #252525;
+  width: 500px;
+  margin: 50px auto 0 auto;
+}
+#buy table {
+  text-align: right;
+  margin: 15px auto 20px auto;
+  font-size: 18px;
+}
+#buy td {
+  padding: 3px 15px 3px 10px;
+}
+#buy .r {
+  padding-right: 10px;
+}
+#buy .last {
+  border-top: 1px solid white;
+}
+#buy form {
+  margin-bottom: 20px;
+}
+
+/* sell.html */
+#sell .summary table {
+  min-width: 400px;
+  margin: 0 auto 8px auto;
+  font-size: 20px;
+}
+#sell .summary table td {
+  padding-right: 3px;
+}
+#sell .division {
+  border: 1px solid white;
+  width: 300px;
+  margin: 15px auto 30px auto;
+}
+#sell .box {
+  border: 2px solid white;
+  border-radius: 10px;
+  background: #252525;
+  width: 500px;
+  margin: 50px auto 0 auto;
+}
+#sell .box table {
+  margin: 15px auto 20px auto;
+  font-size: 18px;
+  text-align: right;
+}
+#sell .box table td {
+  padding: 3px 15px 3px 10px;
+}
+#sell .box .last {
+  border-top: 1px solid white;
+}
+#sell .box form {
+  margin-bottom: 20px;
+}
+
+/* info.html */
+#info div {
+  width: 60%;
+  margin: auto;
+}
+#info .info {
+  padding: 25px;
+  background-color: #181818;
+  border-radius: 1rem;
+  border: 3px solid white;
+  margin-top: 50px;
+}
+#info .purpose {
+  padding: 25px;
+  background-color: #181818;
+  border-radius: 1rem;
+  border: 3px solid white;
+}
+#info .divider {
+  margin-top: 45px;
+}
+
+#contact fieldset {
+  margin-top: 20px;
+}
+#contact fieldset > * {
+  display: block;
+  margin: auto;
+}
+#contact fieldset [name=contact] {
+  margin-bottom: 15px;
+  width: 400px;
+  text-align: center;
+}
+#contact fieldset [name=body] {
+  margin-bottom: 10px;
+  width: 400px;
+  height: 200px;
+}
+#contact .divider {
+  margin-top: 20px;
+  border: 3px solid white;
+  border-radius: 3px;
+}
+
+/*# sourceMappingURL=styles.css.map */
