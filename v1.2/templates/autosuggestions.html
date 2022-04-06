@@ -1,0 +1,22 @@
+{% extends "nav.html" %}
+
+{# Import title block  from "footer.html"#}
+{% block title2 %}
+	{% block title1 %}{% endblock %}
+{% endblock %}
+
+{% block autosuggestions0 %}
+<div id="autosuggestions" style="display: none;">
+  ---autosuggestions go here---
+</div>
+{% endblock %}
+
+{# Import main block from "footer.html" #}
+{% block main2 %}
+	{% block main1 %}{% endblock %}
+{% endblock %}
+
+{# Import footer block from "footer.html" #}
+{% block footer1 %}
+	{% block footer0 %}{% endblock %}
+{% endblock %}
