@@ -1,0 +1,11 @@
+NAME			|	TYPE
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+user			|	string
+user_id			|	integer
+p_table			|	string
+h_table			|	string
+balance			|	float
+new_balance		|	float
+purchase_details	|	list (integer, float, float)
+stock_info		|	dictionary {"name":(string), "price":(float), "symbol":(string)}
+data			|	list of dictionaries [{'name':(string), 'symbol':(string), 'price':(float), 'amount':(integer), 'gain':(float)}, {...}, ...]
