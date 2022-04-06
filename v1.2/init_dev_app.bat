@@ -1,4 +1,4 @@
-:: starts app for local access
+:: defines environmental variables and starts app
 start run_app.bat
 
 :: keeps news and tickers cache up to date
